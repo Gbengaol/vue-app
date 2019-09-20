@@ -1,16 +1,31 @@
 <template>
   <Header>
-      <h3> {{ title }}</h3>
+    <h1 v-on:click="changeGroupName"> {{ groupName }}</h1><hr />
+    <h3 v-on:click="changeTitle"> {{ title }}</h3>
   </Header>
 </template>
 
 <script>
+import { bus } from '../main';
 export default {
-    data: function (){
-        return {
-            title: 'My First Vue.js App. It only shows a list of Ninjas and their hobbies'
+    props: {
+        title: {
+            type: String,
+            required: true
+        },
+        groupName: {
+            type: String,
+            required: true
         }
-        
+    },
+    methods: {
+        changeTitle: function(){
+            this.$emit('changeTitle', 'Gbenga changed this')
+        },
+        changeGroupName: function(){
+            this.groupName = 'Freedom Network'
+            bus.$emit('changeGroupName', 'Freedom Network')
+        }
     }
 }
 </script>

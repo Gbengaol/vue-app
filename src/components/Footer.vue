@@ -1,15 +1,27 @@
 <template>
   <footer>
-      <p> {{ copyright }}</p>
+    <h1> {{ groupName }}</h1><hr />
+    <p> {{ title }}</p>
   </footer>
 </template>
 
 <script>
+import { bus } from '../main';
 export default {
-    data: function(){
-        return {
-            copyright: 'This App was developed by Gbenga Olufeyimi'
+    props: {
+        title: {
+            type: String,
+            required: true
+        },
+        groupName: {
+            type: String,
+            required: true
         }
+    },
+    created(){
+        bus.$on('changeGroupName', (e) => {
+            this.groupName = e;
+        })
     }
 }
 </script>

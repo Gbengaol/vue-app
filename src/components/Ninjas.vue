@@ -1,9 +1,11 @@
 <template>
-    <div id="ninja">
+    <div id="ninja" v-on:click="toggleAndPop">
         <div v-on:click="ninja.show = !ninja.show" v-bind:key="index" v-for="(ninja, index) in ninjas">
             <h3>{{ninja.name}}</h3>
             <h4 v-show="ninja.show">Hobby: {{ninja.hobby}}</h4>
         </div>
+        <slot name="first"></slot>
+        <slot name="second"></slot>
     </div>
 </template>
 
@@ -13,6 +15,11 @@ export default {
         ninjas: {
             type: Array,
             required: true
+        }
+    },
+    methods: {
+        toggleAndPop: function(){
+            this.ninjas.pop()
         }
     }
 }
