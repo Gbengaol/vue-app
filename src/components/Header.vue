@@ -1,5 +1,5 @@
 <template>
-  <Header>
+  <Header class="header">
     <h1 v-on:click="changeGroupName"> {{ groupName }}</h1><hr />
     <h3 v-on:click="changeTitle"> {{ title }}</h3>
   </Header>
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    Header {
+    .header {
         display: flex;
         justify-content: center;
         align-items: center;

@@ -2,9 +2,10 @@
   <div id="app">
     <div id="nav">
       <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
-        <li><router-link to="/blog">Blog</router-link></li>
+        <li><router-link to="/" exact>Home</router-link></li>
+        <li><router-link to="/about" exact>About</router-link></li>
+        <li><router-link to="/blog" exact> Add Blog</router-link></li>
+        <li><router-link to="/blogs" exact> View Blogs</router-link></li>
       </ul>      
     </div>
     <router-view />
@@ -22,7 +23,7 @@
   min-height: 100vh;
 }
 #nav {
-  padding: 30px 0px;
+  padding-top: 10px;
   a {
     font-weight: bold;
     color: #2c3e50;
